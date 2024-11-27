@@ -28,13 +28,10 @@ classDiagram
         - String nombre
         - String idUsuario
         - List<Prestamo> historialPrestamos
-        + consultarHistorial()
-    }
-
-    class Lector {
         - List<Multa> multas
         + reservarLibro(Libro libro)
         + pagarMulta(Multa multa)
+        + consultarHistorial()
     }
 
     class Bibliotecario {
@@ -49,19 +46,20 @@ classDiagram
         - Date fechaInicio
         - Date fechaFin
         - Estado estado
-        + calcularMulta()
     }
 
     class Reserva {
         - Libro libro
         - Lector lector
         - Date fechaReserva
+        + Reservar()
     }
 
     class Multa {
         - double monto
         - String motivo
         - boolean pagada
+        + calcularMulta()
     }
 
     Biblioteca --> Libro : contiene >
@@ -69,8 +67,8 @@ classDiagram
     Biblioteca --> Usuario : registra >
     Bibliotecario --> Prestamo : administra >
     Libro --> Reserva : puede tener >
-    Usuario <|-- Lector : hereda >
-    Usuario <|-- Bibliotecario : hereda >
+    Usuario <-- Bibliotecario : administra >
     Prestamo --> Libro : incluye >
-    Prestamo --> Lector : pertenece a >
-    Lector --> Multa : puede tener >
+    Prestamo <-- Usuario : puede >
+    Usuario --> Reserva : puede >
+    Usuario --> Multa : puede tener >
