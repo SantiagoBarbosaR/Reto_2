@@ -7,7 +7,9 @@ Elija un problema de la vida real (sistema de gestión de biblioteca, negocio de
 Para el reto decidi hacer un Sistema de Gestión de Biblioteca  que va incluir las siguientes funcionalidades :
 
 Reservas de libros : los usuarios pueden reservar libros si están prestados.
+
 Historial de préstamos : se registra el historial de préstamos y devoluciones de cada usuario.
+
 Multas : cálculo y gestión de multas por devoluciones tardías.
 
 ```mermaid
